@@ -4,6 +4,15 @@
 
 @layer base {
   :root {
+    --primary-trainer: #5065ff;
+    --primary-user: #d5ff76;
+    --main-bg: #1c1c1c;
+    --sub-bg: #3e3e3e;
+    --third-bg: #d9d9d9;
+    --main-text: #ffffff;
+    --sub-text: #9e9e9e;
+    --third-text: #262626;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
