@@ -24,6 +24,15 @@ const config = {
     },
     extend: {
       colors: {
+        "primary-trainer": "var(--primary-trainer)",
+        "primary-user": "var(--primary-user)",
+        "main-bg": "var(--main-bg)",
+        "sub-bg": "var(--sub-bg)",
+        "third-bg": "var(--third-bg)",
+        "main-text": "var(--main-text)",
+        "sub-text": "var(--sub-text)",
+        "third-text": "var(--third-text)",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
