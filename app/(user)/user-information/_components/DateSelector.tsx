@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { format, getDaysInMonth } from "date-fns";
 import { useState } from "react";
 
-interface DateSelector {
+interface DateSelectorProps {
   onMouseDownButton: (
     year: number,
     month: number,
@@ -18,7 +18,7 @@ interface DateSelector {
 export default function DateSelector({
   onMouseDownButton,
   className,
-}: DateSelector) {
+}: DateSelectorProps) {
   const yearRange = {
     start: 1940,
     end: new Date().getFullYear() + 1,
