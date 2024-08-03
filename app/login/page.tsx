@@ -1,8 +1,7 @@
 import { MainLogo } from "@/components/MainLogo";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function () {
+export default function Login() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-main-bg sm:w-full sm:flex-col md:w-full md:flex-col lg:w-full">
       <div className="flex-col">
