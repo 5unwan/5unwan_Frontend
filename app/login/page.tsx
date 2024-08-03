@@ -19,18 +19,10 @@ export default function () {
             width={340}
             height={57}
           />
-          <section className="mt-[14px] text-center text-[13px] text-sub-text">
+          <section className="mt-[14px] h-[57px] text-center text-[13px] text-sub-text">
             <span className="">
               로그인하시면 아래 내용에 동의하는 것으로 간주됩니다.
             </span>
-            <section className="mt-[14px] flex justify-evenly">
-              <a href="" className="border-b-[0.5px]">
-                개인정보처리방침
-              </a>
-              <a href="" className="border-b-[0.5px]">
-                이용약관
-              </a>
-            </section>
           </section>
         </section>
       </div>
