@@ -15,6 +15,7 @@ export default function () {
         <section>
           <Image
             src="/kakao_login_large_wide.webp"
+            alt="social_kakao"
             className="mt-[14px] h-[57px] cursor-pointer rounded-[18px] bg-primary-user text-[17px] font-bold text-black"
             width={340}
             height={57}
