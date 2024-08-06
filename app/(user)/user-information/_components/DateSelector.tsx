@@ -3,73 +3,49 @@
 import Wheel from "@/components/keenSlider/wheel";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { format, getDaysInMonth } from "date-fns";
-import { useState } from "react";
+import { yearRange } from "@/constants/date";
+import useOutsideClick from "@/hooks/useOutsideClick";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
+import {
+  formatDay,
+  formatMonth,
+  formatYear,
+  getDaysInMonthForYearAndMonth,
+} from "@/utils/dateUtils";
 
 interface DateSelectorProps {
-  onMouseDownButton: (
-    year: number,
-    month: number,
-    day: number,
-    closeDateSelector: boolean,
-  ) => void;
+  onMouseDownButton: (year: number, month: number, day: number) => void;
+  setClose: Dispatch<SetStateAction<boolean>>;
   className: string;
 }
 export default function DateSelector({
   onMouseDownButton,
+  setClose,
   className,
 }: DateSelectorProps) {
-  const yearRange = {
-    start: 1940,
-    end: new Date().getFullYear() + 1,
-  };
   const today = new Date();
   const [todayYear, setTodayYear] = useState(today.getFullYear());
   const [todayMonth, setTodayMonth] = useState(today.getMonth());
+
   const [todayDate, setTodayDate] = useState(today.getDate());
+  const dateSelectorRef = useRef<HTMLDivElement>(null);
 
-  const formateMonth = (
-    _relative: number,
-    absolute: number,
-    selectedDate: number,
-  ) => {
-    const date = new Date();
-    date.setMonth(absolute);
-    setTimeout(() => setTodayMonth(selectedDate + 1));
-
-    return format(date, "LLLL");
+  const closeDateSelector = () => {
+    setClose(false);
   };
 
-  const formateDay = (
-    _relative: number,
-    absolute: number,
-    selectedDate: number,
-  ) => {
-    setTimeout(() => setTodayDate(selectedDate + 1));
-
-    return String(absolute + 1);
+  const handleMouseDownButton = () => {
+    onMouseDownButton(todayYear, todayMonth, todayDate);
+    closeDateSelector();
   };
 
-  const formateYear = (
-    _relative: number,
-    absolute: number,
-    selectedDate: number,
-  ) => {
-    setTimeout(() => setTodayYear(yearRange.start + selectedDate));
-
-    return String(yearRange.start + absolute);
-  };
-
-  const getDaysInMonthForYearAndMonth = (year: number, month: number) => {
-    const date = new Date(year, month - 1);
-
-    return getDaysInMonth(date);
-  };
+  useOutsideClick(dateSelectorRef, closeDateSelector);
 
   return (
     <div
+      ref={dateSelectorRef}
       className={cn(
-        "animate-slide-up flex w-full flex-col items-center rounded-t-[13px] bg-sub-bg",
+        "flex w-full animate-slide-up flex-col items-center rounded-t-[13px] bg-sub-bg",
         className,
       )}
     >
@@ -81,7 +57,7 @@ export default function DateSelector({
             length={12}
             width={140}
             perspective="right"
-            setValue={formateMonth}
+            setValue={(...props) => formatMonth(setTodayMonth, ...props)}
           />
         </div>
         <div style={{ width: 70, height: 180 }}>
@@ -91,7 +67,7 @@ export default function DateSelector({
             length={getDaysInMonthForYearAndMonth(todayYear, todayMonth)}
             width={23}
             perspective="center"
-            setValue={formateDay}
+            setValue={(...props) => formatDay(setTodayDate, ...props)}
             key={`${todayYear}-${todayMonth}`}
           />
         </div>
@@ -102,14 +78,12 @@ export default function DateSelector({
             length={yearRange.end - yearRange.start}
             width={23}
             perspective="left"
-            setValue={formateYear}
+            setValue={(...props) => formatYear(setTodayYear, ...props)}
           />
         </div>
       </div>
       <Button
-        onMouseDown={() =>
-          onMouseDownButton(todayYear, todayMonth, todayDate, false)
-        }
+        onMouseDown={handleMouseDownButton}
         className="mb-10 mt-5 h-[55px] w-[161px] rounded-[20px] bg-primary-user text-[20px] font-bold text-third-text hover:bg-[#c6f067]"
       >
         확인
