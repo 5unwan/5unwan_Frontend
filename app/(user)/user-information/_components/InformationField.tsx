@@ -21,32 +21,21 @@ export default function InformationField({
   inputType = "text",
   unit,
 }: InformationFieldProps) {
-  const [isVisiableDateSelector, setIsVisiableDateSelector] = useState(false);
+  const [isOpenDateSelector, setIsOpenDateSelector] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleFocusInput = () => {
+  const handleClickInput = () => {
     if (inputType === "date") {
-      setIsVisiableDateSelector(true);
+      setIsOpenDateSelector(true);
     }
   };
 
-  const handleBlurInput = () => {
-    setIsVisiableDateSelector(false);
-  };
-
-  const handleMouseDownGetDate = (
-    year: number,
-    month: number,
-    day: number,
-    closeDateSelector: boolean,
-  ) => {
+  const handleMouseDownGetDate = (year: number, month: number, day: number) => {
     const date = new Date(year, month - 1, day + 1);
 
     if (inputRef.current) {
       inputRef.current.value = date.toISOString().split("T")[0];
     }
-
-    setIsVisiableDateSelector(closeDateSelector);
   };
 
   return (
@@ -65,8 +54,7 @@ export default function InformationField({
       <Input
         id={htmlForAndId}
         ref={inputRef}
-        onFocus={handleFocusInput}
-        onBlur={handleBlurInput}
+        onClick={handleClickInput}
         readOnly={inputType === "date"}
         className={cn(
           "h-[44px] w-[150px] rounded-[10px] bg-sub-bg text-right text-[20px] text-main-text",
@@ -74,9 +62,10 @@ export default function InformationField({
         )}
       />
       <span className="absolute right-10 text-main-text">{unit}</span>
-      {isVisiableDateSelector && (
+      {isOpenDateSelector && (
         <DateSelector
           onMouseDownButton={handleMouseDownGetDate}
+          setClose={setIsOpenDateSelector}
           className="fixed bottom-0"
         />
       )}
