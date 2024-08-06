@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { InputHTMLAttributes, useRef, useState } from "react";
 import DateSelector from "./DateSelector";
 
-interface InformationFiledProps {
+interface InformationFieldProps {
   className?: string;
   htmlForAndId: string;
   labelName: string;
@@ -14,13 +14,13 @@ interface InformationFiledProps {
   unit?: string;
 }
 
-export default function InformationFiled({
+export default function InformationField({
   className,
   htmlForAndId,
   labelName,
   inputType = "text",
   unit,
-}: InformationFiledProps) {
+}: InformationFieldProps) {
   const [isVisiableDateSelector, setIsVisiableDateSelector] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
