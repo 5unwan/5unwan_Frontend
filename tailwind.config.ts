@@ -29,6 +29,7 @@ const config = {
         "main-bg": "var(--main-bg)",
         "sub-bg": "var(--sub-bg)",
         "third-bg": "var(--third-bg)",
+        "fourth-bg": "var(--fourth-bg)",
         "main-text": "var(--main-text)",
         "sub-text": "var(--sub-text)",
         "third-text": "var(--third-text)",
