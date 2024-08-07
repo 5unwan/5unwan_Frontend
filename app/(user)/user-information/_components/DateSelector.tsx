@@ -45,7 +45,7 @@ export default function DateSelector({
     <div
       ref={dateSelectorRef}
       className={cn(
-        "flex w-full animate-slide-up flex-col items-center rounded-t-[13px] bg-sub-bg",
+        "flex w-full animate-slide-up flex-col items-center rounded-t-[13px] bg-sub-bg py-3",
         className,
       )}
     >
