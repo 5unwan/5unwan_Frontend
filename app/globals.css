@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply flex flex-col items-center bg-main-bg text-main-text;
+  }
+
   :root {
     --primary-trainer: #5065ff;
     --primary-user: #d5ff76;
@@ -69,11 +73,11 @@
   }
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
