@@ -1,28 +1,33 @@
 "use client";
 
+import { ChangeEvent, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { InputHTMLAttributes, useRef, useState } from "react";
+import { useUserInformationStore } from "@/stores/useUserInformationStore";
 import DateSelector from "./DateSelector";
 
 interface InformationFieldProps {
   className?: string;
-  htmlForAndId: string;
   labelName: string;
   inputType?: "date" | "text";
   unit?: string;
+  value: string;
+  index: number;
 }
 
 export default function InformationField({
   className,
-  htmlForAndId,
   labelName,
   inputType = "text",
   unit,
+  value,
+  index,
 }: InformationFieldProps) {
+  const setBodyInformationValue = useUserInformationStore(
+    (state) => state.setBodyInformationValue,
+  );
   const [isOpenDateSelector, setIsOpenDateSelector] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClickInput = () => {
     if (inputType === "date") {
@@ -30,12 +35,14 @@ export default function InformationField({
     }
   };
 
-  const handleMouseDownGetDate = (year: number, month: number, day: number) => {
+  const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+    setBodyInformationValue(index, event.target.value);
+  };
+
+  const getSelectedDate = (year: number, month: number, day: number) => {
     const date = new Date(year, month - 1, day + 1);
 
-    if (inputRef.current) {
-      inputRef.current.value = date.toISOString().split("T")[0];
-    }
+    setBodyInformationValue(index, date.toISOString().split("T")[0]);
   };
 
   return (
@@ -46,15 +53,16 @@ export default function InformationField({
       )}
     >
       <Label
-        htmlFor={htmlForAndId}
+        htmlFor={labelName}
         className="min-w-20 text-xl text-main-text group-focus-within:text-black"
       >
         {labelName}
       </Label>
       <Input
-        id={htmlForAndId}
-        ref={inputRef}
+        id={labelName}
+        value={value}
         onClick={handleClickInput}
+        onChange={handleChangeValue}
         readOnly={inputType === "date"}
         className={cn(
           "h-[44px] w-[150px] rounded-[10px] bg-sub-bg text-right text-[20px] text-main-text",
@@ -64,7 +72,7 @@ export default function InformationField({
       <span className="absolute right-10 text-main-text">{unit}</span>
       {isOpenDateSelector && (
         <DateSelector
-          onMouseDownButton={handleMouseDownGetDate}
+          onMouseDownButton={getSelectedDate}
           setClose={setIsOpenDateSelector}
           className="fixed bottom-0"
         />
