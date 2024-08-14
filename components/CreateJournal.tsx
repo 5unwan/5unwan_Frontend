@@ -57,7 +57,7 @@ function PTIcon() {
   return (
     <div>
       <Dumbbell size={25} color="#1C1C1C" />
-      <p className="mt-1 text-base font-bold text-third-text">식단</p>
+      <p className="mt-1 text-base font-bold text-third-text">PT</p>
     </div>
   );
 }
