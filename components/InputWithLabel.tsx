@@ -44,7 +44,7 @@ export default function InputWithLabel({
 
   return (
     <div className={cn("grid w-full items-center gap-1.5", containerClassName)}>
-      <Label htmlFor={id} className="min-w-10 text-main-text">
+      <Label htmlFor={id} className="min-w-10 text-[17px] text-main-text">
         {label}
       </Label>
       <div
@@ -61,7 +61,8 @@ export default function InputWithLabel({
           ref={inputRef}
           placeholder={placeholder}
           className={cn(
-            "z-10 h-full bg-transparent text-main-text",
+            "z-10 h-[46px] rounded-[10px] bg-transparent text-main-text",
+            type === "file" && "h-full",
             (imageFile || videoFile) && "hidden",
             inputClassName,
           )}
