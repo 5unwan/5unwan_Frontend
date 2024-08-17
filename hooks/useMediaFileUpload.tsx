@@ -1,6 +1,6 @@
 import { RefObject, useState } from "react";
 
-export default function UseMediaFileUpload(
+export default function useMediaFileUpload(
   ref: RefObject<HTMLInputElement>,
 ): [string, string, () => void] {
   const [imageFile, setImgFile] = useState("");
