@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply flex flex-col items-center bg-main-bg text-main-text;
+  }
+
   :root {
     --primary-trainer: #5065ff;
     --primary-user: #d5ff76;
@@ -71,4 +75,4 @@
   input[type="file"] {
     text-indent: -9999px;
   }
-}
+} 
