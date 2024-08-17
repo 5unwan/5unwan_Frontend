@@ -1,11 +1,11 @@
 "use client";
 
+import { Dispatch, SetStateAction, useRef, useState } from "react";
 import Wheel from "@/components/keenSlider/wheel";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { yearRange } from "@/constants/date";
 import useOutsideClick from "@/hooks/useOutsideClick";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
 import {
   formatDay,
   formatMonth,
@@ -45,7 +45,7 @@ export default function DateSelector({
     <div
       ref={dateSelectorRef}
       className={cn(
-        "flex w-full animate-slide-up flex-col items-center rounded-t-[13px] bg-sub-bg py-3",
+        "z-10 flex w-full animate-slide-up flex-col items-center rounded-t-[13px] bg-sub-bg py-3",
         className,
       )}
     >
