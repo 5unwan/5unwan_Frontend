@@ -11,7 +11,7 @@
     --primary-trainer: #5065ff;
     --primary-user: #d5ff76;
     --main-bg: #1c1c1c;
-    --sub-bg: #252525;
+    --sub-bg: #303030;
     --third-bg: #3e3e3e;
     --fourth-bg: #d9d9d9;
     --main-text: #ffffff;
@@ -75,4 +75,4 @@
   input[type="file"] {
     text-indent: -9999px;
   }
-} 
+}
