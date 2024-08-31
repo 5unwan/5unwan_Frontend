@@ -1,23 +1,23 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import UseMediaFileUpload from "@/hooks/useMediaFileUpload";
-import { cn } from "@/lib/utils";
-import { FolderDown } from "lucide-react";
-import Image from "next/image";
 import {
   HTMLInputTypeAttribute,
   InputHTMLAttributes,
   ReactNode,
   useRef,
 } from "react";
+import { FolderDown } from "lucide-react";
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import UseMediaFileUpload from "@/hooks/useMediaFileUpload";
+import { cn } from "@/lib/utils";
 
 interface InputWithLabelProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
   type?: HTMLInputTypeAttribute;
-  placeholder: string;
+  placeholder?: string;
   children?: ReactNode;
   styleProps?: {
     containerClassName?: string;
@@ -61,7 +61,7 @@ export default function InputWithLabel({
           ref={inputRef}
           placeholder={placeholder}
           className={cn(
-            "z-10 h-[46px] rounded-[10px] bg-transparent text-main-text",
+            "z-10 h-[46px] rounded-[10px] bg-sub-bg text-main-text",
             type === "file" && "h-full",
             (imageFile || videoFile) && "hidden",
             inputClassName,
