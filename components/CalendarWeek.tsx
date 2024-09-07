@@ -10,13 +10,13 @@ export default function CalendarWeek({
   today,
 }: CalendarWeekProps) {
   const DAYS = [
-    { SUN: "일", key: "calendar_sunday" },
-    { MON: "월", key: "calendar_monday" },
-    { THE: "화", key: "calendar_theusday" },
-    { WED: "수", key: "calendar_wednesday" },
-    { THU: "목", key: "calendar_thursday" },
-    { FRI: "금", key: "calendar_friday" },
-    { SAT: "토", key: "calendar_saturday" },
+    { day: "일", key: "sunday" },
+    { day: "월", key: "monday" },
+    { day: "화", key: "theusday" },
+    { day: "수", key: "wednesday" },
+    { day: "목", key: "thursday" },
+    { day: "금", key: "friday" },
+    { day: "토", key: "saturday" },
   ];
 
   const getCurrentWeek = () => {
@@ -39,15 +39,15 @@ export default function CalendarWeek({
   return (
     <div className="animate-slide-up p-5 duration-100">
       <div className="grid grid-cols-7 gap-4 rounded-lg text-center text-[15px]">
-        {Object.keys(DAYS).map((day, index) => {
+        {DAYS.map((day, index) => {
           const isWeekend = index === 0 || index === 6;
 
           return (
             <p
-              key={`${Object.values(DAYS)[index]}OfWeek`}
+              key={`${day.key}OfWeek`}
               className={`leading-7 ${isWeekend ? "text-sub-text" : "text-main-text"}`}
             >
-              {day}
+              {day.day}
             </p>
           );
         })}
