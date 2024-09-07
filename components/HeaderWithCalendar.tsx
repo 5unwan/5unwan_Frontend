@@ -12,13 +12,13 @@ export default function HeaderWithCalendar() {
   const [date, setDate] = useState<Date>(today);
   const [spread, setSpread] = useState(false);
 
-  const handleSelectDate = (date: Date) => {
+  const handleDayClick = (date: Date) => {
     if (date) {
       setDate(date);
     }
   };
 
-  const handleSpreadCalendar = (event: React.MouseEvent) => {
+  const onSpreadCalendar = (event: React.MouseEvent) => {
     event.stopPropagation();
     setSpread(!spread);
   };
@@ -29,7 +29,7 @@ export default function HeaderWithCalendar() {
         <div className="relative left-[19px] text-[20px]">
           <div
             className="flex items-center text-[23px]"
-            onClick={handleSpreadCalendar}
+            onClick={onSpreadCalendar}
           >
             {formatDate(date)}
             <ChevronsUpDown className="relative ml-[6px]" />
@@ -63,12 +63,12 @@ export default function HeaderWithCalendar() {
             today={today}
             selected={date}
             numberOfMonths={1}
-            onDayClick={handleSelectDate}
+            onDayClick={handleDayClick}
           />
         ) : (
           <CalendarWeeks
             date={date}
-            handleSelectDate={handleSelectDate}
+            onDayClick={handleDayClick}
             today={today}
           />
         )}

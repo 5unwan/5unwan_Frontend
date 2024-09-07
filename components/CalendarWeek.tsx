@@ -1,23 +1,23 @@
 interface CalendarWeekProps {
   date: Date;
-  handleSelectDate: (date: Date) => void;
+  onDayClick: (date: Date) => void;
   today: Date;
 }
 
 export default function CalendarWeek({
   date,
-  handleSelectDate,
+  onDayClick,
   today,
 }: CalendarWeekProps) {
-  const DAYS = {
-    일: "SUN",
-    월: "MON",
-    화: "TUE",
-    수: "WED",
-    목: "THU",
-    금: "FRI",
-    토: "SAT",
-  };
+  const DAYS = [
+    { SUN: "일", key: "calendar_sunday" },
+    { MON: "월", key: "calendar_monday" },
+    { THE: "화", key: "calendar_theusday" },
+    { WED: "수", key: "calendar_wednesday" },
+    { THU: "목", key: "calendar_thursday" },
+    { FRI: "금", key: "calendar_friday" },
+    { SAT: "토", key: "calendar_saturday" },
+  ];
 
   const getCurrentWeek = () => {
     const currentDate = new Date();
@@ -59,7 +59,7 @@ export default function CalendarWeek({
               key={`day_${calendarNumber.getDate()}`}
               className="flex w-full items-center justify-center"
               onClick={() => {
-                handleSelectDate(calendarNumber);
+                onDayClick(calendarNumber);
               }}
             >
               <div
