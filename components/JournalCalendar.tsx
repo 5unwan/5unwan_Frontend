@@ -5,9 +5,9 @@ import { Plus, Bell } from "lucide-react";
 import { formatDate } from "@/utils/dateUtils";
 import { ChevronsUpDown } from "lucide-react";
 import { Calendar } from "./ui/calendar";
-import CalendarWeeks from "./CalendarWeek";
+import JournalWeeklyCalendar from "./JournalWeeklyCalendar";
 
-export default function HeaderWithCalendar() {
+export default function JournalCalendar() {
   const today = new Date();
   const [date, setDate] = useState<Date>(today);
   const [spread, setSpread] = useState(false);
@@ -66,7 +66,7 @@ export default function HeaderWithCalendar() {
             onDayClick={handleDayClick}
           />
         ) : (
-          <CalendarWeeks
+          <JournalWeeklyCalendar
             date={date}
             onDayClick={handleDayClick}
             today={today}

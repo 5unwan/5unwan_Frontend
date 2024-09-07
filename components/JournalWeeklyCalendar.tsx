@@ -1,14 +1,14 @@
-interface CalendarWeekProps {
+interface JournalWeeklyCalendarProps {
   date: Date;
   onDayClick: (date: Date) => void;
   today: Date;
 }
 
-export default function CalendarWeek({
+export default function JournalWeeklyCalendar({
   date,
   onDayClick,
   today,
-}: CalendarWeekProps) {
+}: JournalWeeklyCalendarProps) {
   const DAYS = [
     { day: "일", key: "sunday" },
     { day: "월", key: "monday" },
@@ -53,20 +53,20 @@ export default function CalendarWeek({
         })}
       </div>
       <div className="grid grid-cols-7 gap-4 rounded-lg text-center text-[0.8rem]">
-        {getCurrentWeek().map((calendarNumber) => {
+        {getCurrentWeek().map((dateNumber) => {
           return (
             <div
-              key={`day_${calendarNumber.getDate()}`}
+              key={`day_${dateNumber.getDate()}`}
               className="flex w-full items-center justify-center"
               onClick={() => {
-                onDayClick(calendarNumber);
+                onDayClick(dateNumber);
               }}
             >
               <div
                 tabIndex={0}
-                className={`bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md text-[15px] leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition ${calendarNumber.getDate() === today.getDate() && "text-red-500 focus:text-[#000]"} ${date.getDate() === calendarNumber.getDate() && "bg-white text-[#000] focus:text-[#000]"}`}
+                className={`bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md text-[15px] leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition ${dateNumber.getDate() === today.getDate() && "text-red-500 focus:text-[#000]"} ${date.getDate() === dateNumber.getDate() && "bg-white text-[#000] focus:text-[#000]"}`}
               >
-                {calendarNumber.getDate()}
+                {dateNumber.getDate()}
               </div>
             </div>
           );
