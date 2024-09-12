@@ -41,7 +41,7 @@ export default function AccountInformation({
       <div className="mt-12 w-full">
         <p>내 계정</p>
         <div className="flex items-center justify-between">
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <Image
               alt="카카오 아이콘"
               src="/kakao_icon.webp"
