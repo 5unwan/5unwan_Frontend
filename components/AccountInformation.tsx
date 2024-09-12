@@ -9,7 +9,6 @@ interface AccountInformationProps {
   name: string;
   email: string;
   profileImageUrl: string;
-  onClickEditProfile: () => void;
   onClickLogout: () => void;
 }
 
@@ -18,9 +17,10 @@ export default function AccountInformation({
   name,
   email,
   profileImageUrl,
-  onClickEditProfile,
   onClickLogout,
 }: AccountInformationProps) {
+  const handleClickEditProfile = () => {};
+
   return (
     <section className={cn("w-full", className)}>
       <section className="flex w-full items-center justify-between">
@@ -36,7 +36,7 @@ export default function AccountInformation({
         <Button
           variant={"outline"}
           className="h-[34px] rounded-xl hover:bg-primary-user"
-          onClick={onClickEditProfile}
+          onClick={handleClickEditProfile}
         >
           프로필 설정
         </Button>
