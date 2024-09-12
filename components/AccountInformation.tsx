@@ -1,9 +1,11 @@
 import { Dumbbell } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 
 interface AccountInformationProps {
+  className?: string;
   name: string;
   email: string;
   profileImageUrl: string;
@@ -12,6 +14,7 @@ interface AccountInformationProps {
 }
 
 export default function AccountInformation({
+  className,
   name,
   email,
   profileImageUrl,
@@ -19,8 +22,8 @@ export default function AccountInformation({
   onClickLogout,
 }: AccountInformationProps) {
   return (
-    <div className="w-full">
-      <div className="flex w-full items-center justify-between">
+    <section className={cn("w-full", className)}>
+      <section className="flex w-full items-center justify-between">
         <div className="flex items-center gap-5">
           <Avatar className="h-16 w-16 rounded-[20px]">
             <AvatarImage src={profileImageUrl} alt="프로필 이미지" />
@@ -37,8 +40,8 @@ export default function AccountInformation({
         >
           프로필 설정
         </Button>
-      </div>
-      <div className="mt-12 w-full">
+      </section>
+      <section className="mt-12 w-full">
         <p>내 계정</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -58,7 +61,7 @@ export default function AccountInformation({
             로그아웃
           </Button>
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
