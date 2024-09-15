@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useState } from "react";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
@@ -48,7 +49,10 @@ export default function ExerciseDetailsEditor() {
     <div className="w-full rounded-[10px] bg-primary-user p-3 text-third-text">
       <div className="flex flex-col items-center justify-center">
         {exerciseDetails.map(({ set, weight, reps }, index) => (
-          <div key={`${set}-${index}`} className="flex items-center gap-3">
+          <div
+            key={`${set}-${index}`}
+            className="flex items-center justify-center gap-3"
+          >
             <div className="flex w-14 justify-center font-bold">{set} 세트</div>
             <Input
               className="w-[90px] rounded-[10px] bg-third-bg text-right text-main-text"
@@ -70,6 +74,9 @@ export default function ExerciseDetailsEditor() {
               size={20}
               strokeWidth={2.5}
               onClick={() => handleClickDeleteSet(index)}
+              className={cn(
+                index !== exerciseDetails.length - 1 && "invisible",
+              )}
             />
           </div>
         ))}
