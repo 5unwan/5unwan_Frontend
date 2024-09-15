@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Button } from "./ui/button";
-import { actionProps } from "@/types/actionSheet";
+import { ActionProps } from "@/types/actionSheet";
 import useOutsideClick from "@/hooks/useOutsideClick";
+import { Button } from "./ui/button";
 
 interface ActionSheetProps {
-  actions: actionProps[];
+  actions: ActionProps[];
   closeAction: () => void;
 }
 export default function ActionSheet({
@@ -21,7 +21,7 @@ export default function ActionSheet({
       <div className="flex h-full w-full bg-black opacity-40" />
       <div
         ref={actionsRef}
-        className="animate-slide-up absolute bottom-3 flex w-full flex-col-reverse items-center justify-center duration-300"
+        className="absolute bottom-3 flex w-full animate-slide-up flex-col-reverse items-center justify-center duration-300"
       >
         <Button
           className="h-[56px] w-11/12 items-center justify-center bg-[#25252588] p-3 text-[17px] text-[#0A84FF] backdrop-blur-sm hover:bg-[#303030]"
