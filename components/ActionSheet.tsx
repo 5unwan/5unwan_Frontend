@@ -7,25 +7,25 @@ import useOutsideClick from "@/hooks/useOutsideClick";
 
 interface ActionSheetProps {
   actions: actionProps[];
-  closeAction: () => void;
+  onClickCloseAction: () => void;
 }
 export default function ActionSheet({
   actions,
-  closeAction,
+  onClickCloseAction,
 }: ActionSheetProps) {
   const actionsRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(actionsRef, closeAction);
+  useOutsideClick(actionsRef, onClickCloseAction);
 
   return (
     <div className="fixed left-0 top-0 flex h-full w-full">
       <div className="flex h-full w-full bg-black opacity-40" />
       <div
         ref={actionsRef}
-        className="animate-slide-up absolute bottom-3 flex w-full flex-col-reverse items-center justify-center duration-300"
+        className="absolute bottom-3 flex w-full animate-slide-up flex-col-reverse items-center justify-center duration-300"
       >
         <Button
           className="h-[56px] w-11/12 items-center justify-center bg-[#25252588] p-3 text-[17px] text-[#0A84FF] backdrop-blur-sm hover:bg-[#303030]"
-          onClick={closeAction}
+          onClick={onClickCloseAction}
         >
           취소
         </Button>
