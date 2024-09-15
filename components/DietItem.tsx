@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import imageSvg from "public/image.svg";
-import { Input } from "./ui/input";
-import { EllipsisVertical } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+import { EllipsisVertical } from "lucide-react";
+import imageSvg from "public/image.svg";
 import { formatTime } from "@/utils/dateUtils";
+import { ActionProps } from "@/types/actionSheet";
+import { Input } from "./ui/input";
 import ActionSheet from "./ActionSheet";
-import { actionProps } from "@/types/actionSheet";
 
 interface DietItemProps {
   src: string;
@@ -35,7 +35,7 @@ export default function DietItem({
     setStatusAction(false);
   };
 
-  const actions: Array<actionProps> = [
+  const actions: Array<ActionProps> = [
     {
       name: "공유",
       action: () => {
