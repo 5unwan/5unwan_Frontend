@@ -25,6 +25,8 @@ export default function JournalMonthlyCalendar({
         month: "w-full",
         row: "flex w-full mt-10",
         cell: "text-center w-full",
+        head_cell:
+          "rounded-md w-full font-normal  mt-10 last:text-sub-text first:text-sub-text",
         head_row: "flex w-full justify-between",
         day: cn(
           buttonVariants({ variant: "ghost" }),
