@@ -1,23 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import React, { CSSProperties } from "react";
-interface MealJournalRadioCardProps {
-  className: string;
+interface MealJournalBadgeProps {
   label: string;
   type: string;
   mealTimeAndSatiety: Array<{ value: string; key: string }>;
   select: string;
-  handleClickJournalContent: (type: string, value: string) => void;
+  className: string;
+  onClickJournalContent: (type: string, value: string) => void;
 }
 
-export default function MealJournalRadioCard({
-  className,
+export default function MealJournalBadge({
   label,
   type,
+  className,
   mealTimeAndSatiety,
   select,
-  handleClickJournalContent,
-}: MealJournalRadioCardProps) {
+  onClickJournalContent,
+}: MealJournalBadgeProps) {
   return (
     <section className="w-full">
       <p className="text-[#f5f5f5]">{label}</p>
@@ -28,10 +28,11 @@ export default function MealJournalRadioCard({
               key={key}
               className={cn(
                 `h-[34px] min-w-[61px] rounded-[13px] bg-[#303030] text-sub-text hover:bg-primary-user hover:text-main-bg`,
-                select === value && className,
+                select === value && "bg-primary-user text-main-bg",
+                className,
               )}
               onClick={() => {
-                handleClickJournalContent(type, value);
+                onClickJournalContent(type, value);
               }}
             >
               {value}
