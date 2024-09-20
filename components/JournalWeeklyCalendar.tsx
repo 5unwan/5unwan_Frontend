@@ -59,7 +59,6 @@ export default function JournalWeeklyCalendar({
               }}
             >
               <div
-                tabIndex={0}
                 className={cn(
                   "bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition",
                   selectedDate.getDate() === date.getDate() &&
