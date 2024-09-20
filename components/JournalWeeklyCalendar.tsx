@@ -1,3 +1,4 @@
+import { COUNT_OF_DAYS_IN_A_WEEK, DAYS } from "@/constants/date";
 import { cn } from "@/lib/utils";
 
 interface JournalWeeklyCalendarProps {
@@ -11,16 +12,6 @@ export default function JournalWeeklyCalendar({
   selectedDate,
   onClickSetSelectedDate,
 }: JournalWeeklyCalendarProps) {
-  const DAYS = [
-    { day: "일", key: "sunday" },
-    { day: "월", key: "monday" },
-    { day: "화", key: "theusday" },
-    { day: "수", key: "wednesday" },
-    { day: "목", key: "thursday" },
-    { day: "금", key: "friday" },
-    { day: "토", key: "saturday" },
-  ];
-
   const getCurrentWeek = () => {
     const currentDate = new Date();
     const currentDay = currentDate.getDay();
@@ -29,7 +20,7 @@ export default function JournalWeeklyCalendar({
     const startDate = new Date(currentDate.setDate(startDayOfWeek));
 
     const week = [];
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < COUNT_OF_DAYS_IN_A_WEEK; i++) {
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + i);
       week.push(date);
