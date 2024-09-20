@@ -6,14 +6,14 @@ import { buttonVariants } from "./ui/button";
 
 interface JournalMonthlyCalendarProps {
   today: Date;
-  selectDate: Date;
-  onClickSetSelectDate: (date: Date) => void;
+  selectedDate: Date;
+  onClickSetSelectedDate: (date: Date) => void;
 }
 
 export default function JournalMonthlyCalendar({
   today,
-  selectDate,
-  onClickSetSelectDate,
+  selectedDate,
+  onClickSetSelectedDate,
 }: JournalMonthlyCalendarProps) {
   return (
     <Calendar
@@ -33,16 +33,15 @@ export default function JournalMonthlyCalendar({
           `h-9 w-9 p-0 font-normal aria-selected:opacity-100`,
         ),
         day_today: "text-red-500",
-        day_selected:
-          "bg-main-text text-black focus:bg-main-text focus:text-black",
+        day_selected: "bg-main-text text-black focus:bg-main-text",
         day_outside:
           "day-outside aria-selected:bg-primary-trainer text-sub-text focus:text-main-text",
       }}
       today={today}
-      month={selectDate}
-      selected={selectDate}
+      month={selectedDate}
+      selected={selectedDate}
       numberOfMonths={1}
-      onDayClick={onClickSetSelectDate}
+      onDayClick={onClickSetSelectedDate}
     />
   );
 }
