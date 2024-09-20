@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface JournalWeeklyCalendarProps {
   today: Date;
   selectedDate: Date;
@@ -45,7 +47,10 @@ export default function JournalWeeklyCalendar({
           return (
             <p
               key={`${day.key}OfWeek`}
-              className={`leading-7 ${isWeekend ? "text-sub-text" : "text-main-text"}`}
+              className={cn(
+                "leading-7 text-main-text",
+                isWeekend && "text-sub-text",
+              )}
             >
               {day.day}
             </p>
@@ -64,7 +69,13 @@ export default function JournalWeeklyCalendar({
             >
               <div
                 tabIndex={0}
-                className={`bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition ${date.getDate() === today.getDate() && "text-red-500 focus:text-[#000]"} ${selectedDate.getDate() === date.getDate() && "bg-white text-[#000] focus:text-[#000]"}`}
+                className={cn(
+                  "bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition",
+                  selectedDate.getDate() === date.getDate() &&
+                    "bg-white text-[#000]",
+                  date.getDate() === today.getDate() &&
+                    "text-red-500 hover:text-[#000]",
+                )}
               >
                 {date.getDate()}
               </div>
