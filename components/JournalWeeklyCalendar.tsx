@@ -1,13 +1,13 @@
 interface JournalWeeklyCalendarProps {
   today: Date;
-  selectDate: Date;
-  handleClickSetSelectDate: (date: Date) => void;
+  selectedDate: Date;
+  onClickSetSelectedDate: (date: Date) => void;
 }
 
 export default function JournalWeeklyCalendar({
   today,
-  selectDate,
-  handleClickSetSelectDate,
+  selectedDate,
+  onClickSetSelectedDate,
 }: JournalWeeklyCalendarProps) {
   const DAYS = [
     { day: "일", key: "sunday" },
@@ -59,12 +59,12 @@ export default function JournalWeeklyCalendar({
               key={`day_${date.getDate()}`}
               className="flex w-full items-center justify-center"
               onClick={() => {
-                handleClickSetSelectDate(date);
+                onClickSetSelectedDate(date);
               }}
             >
               <div
                 tabIndex={0}
-                className={`bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition ${date.getDate() === today.getDate() && "text-red-500 focus:text-[#000]"} ${selectDate.getDate() === date.getDate() && "bg-white text-[#000] focus:text-[#000]"}`}
+                className={`bold mt-[20px] flex h-9 w-9 cursor-pointer items-center justify-center rounded-md leading-7 transition-all duration-200 hover:bg-main-text hover:text-[#000] hover:transition ${date.getDate() === today.getDate() && "text-red-500 focus:text-[#000]"} ${selectedDate.getDate() === date.getDate() && "bg-white text-[#000] focus:text-[#000]"}`}
               >
                 {date.getDate()}
               </div>
