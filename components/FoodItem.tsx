@@ -31,18 +31,18 @@ export default function FoodItem({
   const [statusAction, setStatusAction] = useState(false);
   const [showWriteFeedback, setShowWriteFeedback] = useState(false);
 
-  const onClickOpenAction = (): void => {
+  const handleClickOpenAction = (): void => {
     setStatusAction(true);
   };
-  const onClickCloseAction = (): void => {
+  const handleClickCloseAction = (): void => {
     setStatusAction(false);
   };
 
-  const onClickOpenWriteFeedback = (): void => {
+  const handleClickOpenWriteFeedback = (): void => {
     setShowWriteFeedback(true);
   };
 
-  const onClickCloseWriteFeedback = (): void => {
+  const handleClickCloseWriteFeedback = (): void => {
     setShowWriteFeedback(false);
   };
 
@@ -50,21 +50,21 @@ export default function FoodItem({
     {
       name: "공유",
       action: () => {
-        onClickCloseAction();
+        handleClickCloseAction();
       },
       type: "basic",
     },
     {
       name: "수정",
       action: () => {
-        onClickCloseAction();
+        handleClickCloseAction();
       },
       type: "basic",
     },
     {
       name: "삭제",
       action: () => {
-        onClickCloseAction();
+        handleClickCloseAction();
       },
       type: "danger",
     },
@@ -94,7 +94,7 @@ export default function FoodItem({
           ) : (
             <Button
               className="w-full rounded-[100px] bg-[#303030] hover:bg-primary-trainer"
-              onClick={onClickOpenWriteFeedback}
+              onClick={handleClickOpenWriteFeedback}
             >
               피드백 달기
             </Button>
@@ -104,13 +104,13 @@ export default function FoodItem({
         <EllipsisVertical
           className="rotate-90 text-main-text"
           size={30}
-          onClick={onClickOpenAction}
+          onClick={handleClickOpenAction}
         />
       </div>
       {statusAction && (
         <ActionSheet
           actions={actions}
-          onClickCloseAction={onClickCloseAction}
+          onClickCloseAction={handleClickCloseAction}
         />
       )}
     </>
