@@ -12,15 +12,10 @@ export default function Feedback({ mealTime, feedback }: FeedbackProps) {
         <MessageSquare className="mr-2 scale-x-[-1]" />
       </div>
       <div>
-        {feedback.split("\n").map((content, index) => (
-          <p
-            key={`feedback${index}_${mealTime}_${content}`}
-            className="whitespace-pre-wrap"
-          >
-            {content}
-            <br />
-          </p>
-        ))}
+        <p className="whitespace-pre-wrap">
+          {feedback}
+          <br />
+        </p>
       </div>
     </section>
   );
