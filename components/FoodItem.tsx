@@ -17,7 +17,7 @@ interface FoodItemProps {
   mealTime: Date;
   mealAmount: "가볍게" | "배부르게" | "적당히" | "과하게";
   mealMemo: string;
-  feedback: string | null;
+  feedback?: string;
 }
 
 export default function FoodItem({
@@ -89,7 +89,7 @@ export default function FoodItem({
             <br />
             <span className="text-[13px] text-sub-text">{mealMemo}</span>
           </article>
-          {feedback !== null ? (
+          {feedback ? (
             <Feedback mealTime={mealTime} feedback={feedback} />
           ) : (
             <Button
@@ -107,12 +107,6 @@ export default function FoodItem({
           onClick={handleClickOpenAction}
         />
       </div>
-      {statusAction && (
-        <ActionSheet
-          actions={actions}
-          onClickCloseAction={handleClickCloseAction}
-        />
-      )}
     </>
   );
 }
