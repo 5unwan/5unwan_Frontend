@@ -46,30 +46,6 @@ export default function FoodItem({
     setShowWriteFeedback(false);
   };
 
-  const actions: Array<actionProps> = [
-    {
-      name: "공유",
-      action: () => {
-        handleClickCloseAction();
-      },
-      type: "basic",
-    },
-    {
-      name: "수정",
-      action: () => {
-        handleClickCloseAction();
-      },
-      type: "basic",
-    },
-    {
-      name: "삭제",
-      action: () => {
-        handleClickCloseAction();
-      },
-      type: "danger",
-    },
-  ];
-
   return (
     <>
       <div className="flex h-[219px] w-full justify-center p-3 text-white">
