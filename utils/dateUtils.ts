@@ -52,3 +52,14 @@ export const formatTime = (date: Date) => {
 
   return `${period} ${formattedHours}:${formattedMinutes}`;
 };
+
+export const formatDate = (date: Date) => {
+  if (date === undefined) return;
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+
+  const formattedYear = year.toString();
+  const formattedMonth = month.toString().padStart(2, "0");
+
+  return `${formattedYear}.${formattedMonth}`;
+};
