@@ -2,12 +2,12 @@
 
 import { Search, ImagePlus } from "lucide-react";
 
-import InputWithLabel from "./InputWithLabel";
-import { TextareaWithLabel } from "./TextareaWithLabel";
-import SelectedExerciseCategories from "./ExerciseCategorySelect/SelectedExerciseCategories";
-import ExerciseDetailsEditor from "./ExerciseDetailsEditor";
+import InputWithLabel from "../InputWithLabel";
+import { TextareaWithLabel } from "../TextareaWithLabel";
+import ExerciseDetailsEditor from "../ExerciseDetailsEditor";
+import SelectedExerciseCategories from "./SelectedExerciseCategories";
 
-export default function WriteJournal() {
+export default function ExerciseWriteJournal() {
   return (
     <section className="flex w-full flex-col gap-5">
       <InputWithLabel
