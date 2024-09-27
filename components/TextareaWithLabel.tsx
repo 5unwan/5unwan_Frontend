@@ -1,9 +1,9 @@
 "use client";
 
+import { TextareaHTMLAttributes } from "react";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import { TextareaHTMLAttributes } from "react";
 
 interface TextareaWithLabelProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -20,14 +20,14 @@ export function TextareaWithLabel({
   ...props
 }: TextareaWithLabelProps) {
   return (
-    <div className={(cn("grid w-full gap-2"), className)}>
+    <div className={cn("flex w-full flex-col gap-2", className)}>
       <Label htmlFor={id} className="text-[17px] text-main-text">
         {label}
       </Label>
       <Textarea
         placeholder={placeholder}
         id={id}
-        className="h-full w-full resize-none rounded-[20px] bg-third-bg text-main-text"
+        className="h-full w-full resize-none rounded-[20px] bg-sub-bg text-main-text"
         {...props}
       />
     </div>
