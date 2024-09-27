@@ -4,10 +4,12 @@ import { Search, ImagePlus } from "lucide-react";
 
 import InputWithLabel from "./InputWithLabel";
 import { TextareaWithLabel } from "./TextareaWithLabel";
+import SelectedExerciseCategories from "./ExerciseCategorySelect/SelectedExerciseCategories";
+import ExerciseDetailsEditor from "./ExerciseDetailsEditor";
 
 export default function WriteJournal() {
   return (
-    <section className="flex w-full flex-col gap-2">
+    <section className="flex w-full flex-col gap-5">
       <InputWithLabel
         label="운동 종목 검색"
         id="exercise"
@@ -16,6 +18,8 @@ export default function WriteJournal() {
       >
         <Search className="absolute left-3 z-10" />
       </InputWithLabel>
+      <SelectedExerciseCategories />
+      <ExerciseDetailsEditor />
       <InputWithLabel
         label="사진, 영상"
         id="media"
