@@ -6,7 +6,9 @@ import { createPortal } from "react-dom";
 
 interface ActionSheetProps {
   children: ReactNode;
-  onClickCloseActionSheet: () => void;
+  onClickCloseActionSheet: (
+    event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>,
+  ) => void;
   ref: React.RefObject<HTMLDivElement>;
 }
 
@@ -18,7 +20,7 @@ const ActionSheetContainer = forwardRef<HTMLDivElement, ActionSheetProps>(
     return createPortal(
       <div ref={ref} className="fixed left-0 top-0 flex h-full w-full">
         <div
-          className="flex h-full w-full bg-black opacity-40"
+          className="flex h-full w-full backdrop-blur-sm backdrop-brightness-50"
           onClick={onClickCloseActionSheet}
         />
         <div className="absolute bottom-3 flex w-full animate-slide-up flex-col-reverse items-center justify-center duration-300">
