@@ -1,7 +1,5 @@
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { AlarmCheck, Bell, User } from "lucide-react";
-import AlarmItem from "@/components/AlarmItem";
+import { Bell } from "lucide-react";
 interface TrainerHeaderProps {
   trainerName: string;
 }
