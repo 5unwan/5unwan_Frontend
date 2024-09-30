@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ExcerciseItemProps {
-  className: string;
+  className?: string;
   excercise: string;
   favorite: boolean;
   select: boolean;
