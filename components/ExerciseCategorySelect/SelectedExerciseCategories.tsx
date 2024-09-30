@@ -34,7 +34,7 @@ export default function SelectedExerciseCategories({
         {DUMMY_DATA.map(({ exerciseType }) => (
           <Badge
             className={cn(
-              "gap-1 whitespace-nowrap rounded-xl bg-sub-bg px-3 py-2",
+              "gap-1 whitespace-nowrap rounded-xl bg-third-bg px-3 py-2",
               userType === "Trainer"
                 ? "hover:bg-primary-trainer hover:text-third-text"
                 : "hover:bg-primary-user hover:text-third-text",
