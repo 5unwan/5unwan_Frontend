@@ -53,7 +53,7 @@ export default function ExerciseRecord() {
           hasMemo ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
         )}
       >
-        <div className="w-full border border-sub-text"></div>
+        <div className="w-full border border-sub-text" />
         <div>
           <p className="h-full w-full whitespace-pre-wrap rounded-[20px] px-1">
             {DUMMY_TEXT}
