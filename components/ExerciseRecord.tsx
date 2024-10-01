@@ -9,13 +9,13 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 
 export default function ExerciseRecord() {
-  const [isMemo, setIsMemo] = useState(false);
+  const [hasMemo, setHasMemo] = useState(false);
   const userType = useStorageStore((state) => state.userType);
   const DUMMY_TEXT =
     "우리가 알고 있는 광배는 골반 쪽에 붙어있습니다.\n그러므로 의자를 앉을 때, 척추를 정렬 시킨 상태에서 진행해야합니다.";
 
-  const handleClickToggleMemoVisibility = () => {
-    setIsMemo((prev) => !prev);
+  const handleClickToggleVisibleMemo = () => {
+    setHasMemo((prev) => !prev);
   };
 
   return (
@@ -35,7 +35,7 @@ export default function ExerciseRecord() {
           <Ellipsis className="" />
           <Button
             className="h-6 w-6 rounded-full bg-blue-300 p-1"
-            onClick={handleClickToggleMemoVisibility}
+            onClick={handleClickToggleVisibleMemo}
           >
             <ChevronDown color="#000000" />
           </Button>
@@ -50,7 +50,7 @@ export default function ExerciseRecord() {
       <div
         className={cn(
           "flex flex-col gap-3 overflow-hidden transition-all duration-300 ease-in-out",
-          isMemo ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          hasMemo ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <div className="w-full border border-sub-text"></div>
