@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { useParams } from "next/navigation";
 
 interface UserProfileViewProps {
   profileImageUrl: string;
