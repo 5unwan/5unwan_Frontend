@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { ArrowLeft } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
@@ -11,7 +10,7 @@ interface UserProfileViewProps {
   height: string;
   weight: string;
   gender: string;
-  purpose: string;
+  exercisePurpose: string;
 }
 
 function renderUserInformation(label: string, value: string) {
