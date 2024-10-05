@@ -15,7 +15,7 @@ interface UserProfileViewProps {
   purpose: string;
 }
 
-function renderUserInfo(label: string, value: string) {
+function renderUserInformation(label: string, value: string) {
   return (
     <div className="flex h-12 items-center justify-between">
       <span>{label}</span>
@@ -54,7 +54,7 @@ export default function UserProfileView({
             ["몸무게", weight],
             ["성별", gender],
             ["운동목적", purpose],
-          ].map(([label, value]) => renderUserInfo(label, value))}
+          ].map(([label, value]) => renderUserInformation(label, value))}
         </div>
       </section>
     </main>
