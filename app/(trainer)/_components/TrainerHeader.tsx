@@ -4,7 +4,7 @@ interface TrainerHeaderProps {
   trainerName: string;
 }
 
-function TrainerHeader({ trainerName }: TrainerHeaderProps) {
+export default function TrainerHeader({ trainerName }: TrainerHeaderProps) {
   return (
     <section className="flex h-[87px] w-full items-center justify-between text-2xl">
       <div className="text-[20px]">
@@ -17,5 +17,3 @@ function TrainerHeader({ trainerName }: TrainerHeaderProps) {
     </section>
   );
 }
-
-export default TrainerHeader;
