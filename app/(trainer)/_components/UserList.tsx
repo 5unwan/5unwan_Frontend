@@ -32,7 +32,6 @@ export default function UserList({
     event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>,
   ) => {
     event.stopPropagation();
-    console.log("%cClose ActionSheet", "color: red;");
     setIsOpenActionSheet(false);
   };
 
@@ -40,7 +39,6 @@ export default function UserList({
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
     event.stopPropagation();
-    console.log(`${userName} 회원 프로필 페이지 이동`);
 
     handleClickCloseActionSheet(event);
   };
@@ -49,14 +47,11 @@ export default function UserList({
     event: React.MouseEvent<HTMLButtonElement>,
   ) => {
     event.stopPropagation();
-    console.log(`${userName} 회원 삭제`);
 
     handleClickCloseActionSheet(event);
   };
 
-  const handleRouteToUserDetail = () => {
-    console.log(`${userName} 회원 식단/운동 정보 페이지 이동`);
-  };
+  const handleRouteToUserDetail = () => {};
 
   return (
     <div
