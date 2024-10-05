@@ -29,7 +29,7 @@ export default function UserProfileView({
   height,
   weight,
   gender,
-  purpose,
+  exercisePurpose,
 }: UserProfileViewProps) {
   return (
     <main className="w-full">
@@ -52,7 +52,7 @@ export default function UserProfileView({
             ["키", height],
             ["몸무게", weight],
             ["성별", gender],
-            ["운동목적", purpose],
+            ["운동목적", exercisePurpose],
           ].map(([label, value]) => renderUserInformation(label, value))}
         </div>
       </section>
