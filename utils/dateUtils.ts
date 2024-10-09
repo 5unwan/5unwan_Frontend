@@ -63,3 +63,16 @@ export const formatDate = (date: Date) => {
 
   return `${formattedYear}.${formattedMonth}`;
 };
+
+export const formatFullDate = (date: Date) => {
+  if (date === undefined) return;
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const formattedYear = year.toString();
+  const formattedMonth = month.toString().padStart(2, "0");
+  const formattedDay = day.toString().padStart(2, "0");
+
+  return `${formattedYear}.${formattedMonth}.${formattedDay}`;
+};
