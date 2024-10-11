@@ -1,13 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { User } from "lucide-react";
 
-interface UserProfileViewImageProps {
+interface UserProfileImageProps {
   userProfileImageUrl: string;
 }
 
-export default function UserProfileViewImage({
+export default function UserProfileImage({
   userProfileImageUrl,
-}: UserProfileViewImageProps) {
+}: UserProfileImageProps) {
   return (
     <article className="mt-[44px] flex items-center justify-center">
       <Avatar className="h-[108px] w-[108px]">

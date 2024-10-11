@@ -1,12 +1,12 @@
 import { ArrowLeft } from "lucide-react";
 
-interface UserProfileViewHeaderProps {
+interface UserProfileHeaderProps {
   userName: string;
 }
 
-export default function UserProfileViewHeader({
+export default function UserProfileHeader({
   userName,
-}: UserProfileViewHeaderProps) {
+}: UserProfileHeaderProps) {
   return (
     <section className="relative flex h-12 items-center">
       <ArrowLeft size={32} className="absolute left-0 cursor-pointer" />
